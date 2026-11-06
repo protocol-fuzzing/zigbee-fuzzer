@@ -1,4 +1,4 @@
-driver_type : "zoh"
+driver_type : "hardware"
 # For ZOH driver:
 zoh_host : "127.0.0.1"
 zoh_port : 6000

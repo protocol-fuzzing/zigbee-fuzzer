@@ -17,6 +17,7 @@ __pycache__/
 *$py.class
 .pytest_cache/
 .mypy_cache/
+.pyre/
 
 # Virtual environments
 venv/
@@ -44,6 +45,7 @@ timing_alphabet.txt
 # ==========================================
 .idea/
 .vscode/
+.settings/
 *.swp
 *.swo
 *~

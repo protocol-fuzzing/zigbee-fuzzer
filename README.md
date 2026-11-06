@@ -193,7 +193,7 @@ Edit `py/config.yaml`:
 ```yaml
 driver_type: "hardware"
 hardware_mac: 0x00124b003a053efe   # Set to coordinator IEEE
-channel: 20
+channel: 20 # Set to the coordinator's channel
 ```
 
 If using `scripts/restartSonoffCoord.sh` for coordinator resets:
@@ -241,21 +241,6 @@ Render learned models to PDF using Graphviz:
 ```sh
 dot -Tpdf experiments/results/zoh/learnedModel.dot -o learnedModel.pdf
 ```
-
----
-
-## 7. Troubleshooting
-
-| Symptom | Likely Cause | Solution |
-| --- | --- | --- |
-| `fatal error: ffi.h: No such file or directory` | Missing CFFI build header | Run `sudo apt install libffi-dev` and re-run `source scripts/setup_venv.sh`. |
-| `Failed to import encodings module` | `PYTHONHOME` set to venv prefix | Run `unset PYTHONHOME`. Ensure `setup_venv.sh` does not export `PYTHONHOME`. |
-| `No module named 'Cryptodome'` | Wrong package variant installed | Ensure `pycryptodomex` is listed in `requirements.txt` instead of `pycryptodome`. |
-| `jep package not found` / missing `libjep.so` | JEP failed compilation during pip install | Ensure `JAVA_HOME` points to JDK 21, install `python3-dev g++`, and run: `python -m pip install --force-reinstall --no-cache-dir jep==4.3.2`. |
-| `Jep is not supported in standalone Python` | Expected behavior | Do not run `import jep` directly in Python; JEP must be initialized through the JVM. |
-| `TimeoutError: Zigbee stack did not connect in time` | ZOH not connecting on TCP 6000 | Verify `ZOH_ROOT`, ensure `dist/dev/conf.json` specifies `"path": "tcp://127.0.0.1:6000"`, and check `.logs/dev-cli.log`. |
-| `npm ERR! Missing script: "dev:cli"` | Untracked upstream commit in ZOH | In the ZOH tree, run `git checkout fab65af` and rebuild with `npm run build`. |
-| `mvn: command not found` | Maven not installed or missing from `PATH` | Run `sudo apt install maven` or load the environment module. |
 
 ---
 

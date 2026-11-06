@@ -1,18 +1,50 @@
-# Ignore all logs
-.logs/
-# *.log
-
-# Ignore Java build artifacts
+# ==========================================
+# Java / Maven Build Artifacts
+# ==========================================
 target/
-*.jar
 *.class
+*.jar
+*.war
+*.nar
+*.ear
+
+# ==========================================
+# Python & Jep Artifacts
+# ==========================================
+# Bytecode & caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
 
 # Virtual environments
 venv/
 .venv/
 env/
+ENV/
 
-# Build artifacts
-target/
+# Packaging & native extensions
 *.egg-info/
-__pycache__/
+*.egg
+build/
+dist/
+*.so
+
+# ==========================================
+# Logs & Temporary Files
+# ==========================================
+.logs/
+*.log
+*.tmp
+timing_alphabet.txt
+
+# ==========================================
+# IDE & Editor Files
+# ==========================================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
